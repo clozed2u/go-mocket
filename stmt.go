@@ -89,6 +89,8 @@ func (s *FakeStmt) ExecContext(ctx context.Context, args []driver.NamedValue) (d
 		return driver.RowsAffected(fResp.RowsAffected), nil
 	case "DELETE":
 		return driver.RowsAffected(fResp.RowsAffected), nil
+	case "MERGE":
+		return driver.RowsAffected(fResp.RowsAffected), nil
 	}
 	return nil, fmt.Errorf("unimplemented statement Exec command type of %q", s.command)
 }
